@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke Generator</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .joke-container {
+            background-color: #ffffff;
+            padding: 25px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+        .joke-container h2 {
+            color: #00796b;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .joke-container p {
+            color: #37474f;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .joke-container button {
+            padding: 10px 15px;
+            margin: 8px;
+            background-color: #00838f;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 15px;
+        }
+        .joke-container button:hover {
+            background-color: #006064;
+            transform: scale(1.05);
+        }
+        .joke-container .clear-btn {
+            background-color: #d32f2f;
+        }
+        .joke-container .clear-btn:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="joke-container">
+        <h2>Joke Generator</h2>
+        <p id="joke">Click the button to generate a joke!</p>
+        <p id="charCount"></p>
+        <button onclick="generateJoke()">Generate Joke</button>
+        <button class="clear-btn" onclick="clearJoke()">Clear</button>
+    </div>
+
+    <script>
+        const jokes = [
+            "Why don't scientists trust atoms? Because they make up everything!",
+            "Why did the scarecrow win an award? Because he was outstanding in his field!",
+            "Why don't skeletons fight each other? They don't have the guts.",
+            "What do you call fake spaghetti? An impasta!"
+        ];
+
+        function generateJoke() {
+            const joke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById('joke').innerText = joke;
+            document.getElementById('charCount').innerText = `Character count: ${joke.length}`;
+        }
+
+        function clearJoke() {
+            document.getElementById('joke').innerText = '';
+            document.getElementById('charCount').innerText = '';
+        }
+    </script>
+</body>
+</html>
